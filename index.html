@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gregorio Semijoias · Joias com o nome de quem você ama</title>
+<meta name="description" content="Colares de letra, pingentes de filhos e presentes da Gregorio Semijoias. Há mais de 20 anos no mercado.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1C1A18">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%231C1A18'/%3E%3Cpath d='M6 10l3-4h6l3 4-6 9z M6 10h12 M10.5 10L12 6l1.5 4L12 19' fill='none' stroke='%2374D3C9' stroke-width='1.3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>document.documentElement.className='js'</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/img/hero-modelo.webp" fetchpriority="high">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200..600&family=Mulish:wght@400..800&display=swap">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&text=Gregorio&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200..600&family=Mulish:wght@400..800&display=swap"></noscript>
+<style>
+/* ===== HERÓI: foto | painel ciano | peças (recortes do banner, sem o texto dele) ===== */
+.hero{display:grid;grid-template-columns:minmax(0,32fr) minmax(0,36fr) minmax(0,32fr);height:clamp(520px,44vw,680px);background:var(--hero-cyan);color:var(--ink)}
+.hero__modelo,.hero__pecas{position:relative;overflow:hidden}
+.hero__modelo img,.hero__pecas img{width:100%;height:100%;object-fit:cover}
+.hero__modelo img{object-position:50% 30%}
+.hero__pecas img{object-position:35% 50%;-webkit-mask-image:linear-gradient(to right,transparent,#000 18%);mask-image:linear-gradient(to right,transparent,#000 18%)}
+.hero__painel{display:flex;flex-direction:column;justify-content:center;gap:var(--sp-5);padding:var(--sp-7) clamp(24px,3.4vw,60px)}
+.hero__label{color:var(--ink)}
+.hero__titulo{font-size:var(--fs-hero);line-height:1.12;letter-spacing:.06em}
+.hero__sub{max-width:30ch}
+.hero__acoes{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3) var(--sp-5);margin-top:var(--sp-2)}
+.hero__acoes .link:hover{color:var(--ink);text-decoration-color:var(--ink);text-decoration-thickness:2px}
+/* máscara: cada linha sobe de dentro, como a peça saindo da maleta */
+.mask{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.mask>span{display:block;transform:translateY(110%);transition:transform var(--dur) var(--ease)}
+.mask:nth-child(2)>span{transition-delay:.08s}
+.mask:nth-child(3)>span{transition-delay:.16s}
+.hero__label,.hero__sub,.hero__acoes{opacity:0;transform:translateY(12px);transition:opacity var(--dur) var(--ease) .24s,transform var(--dur) var(--ease) .24s}
+.hero.is-in .mask>span,.no-js .mask>span{transform:none}
+.hero.is-in .hero__label,.hero.is-in .hero__sub,.hero.is-in .hero__acoes,.no-js .hero__label,.no-js .hero__sub,.no-js .hero__acoes{opacity:1;transform:none}
+@media (max-width:899px){
+  .hero{grid-template-columns:minmax(0,1fr);height:auto}
+  .hero__modelo{aspect-ratio:1/1}
+  .hero__pecas{display:none}
+  .hero__painel{padding:var(--sp-7) var(--pad) var(--sp-8)}
+}
+
+/* ===== FAIXA ROTATIVA (só selos reais; pausa no hover; parada em reduced-motion) ===== */
+.faixa{background:var(--ink);color:var(--text-on-ink);overflow:hidden}
+.faixa__trilho{display:flex;width:max-content}
+.faixa.is-rolando .faixa__trilho{animation:rola 48s linear infinite}
+.faixa:hover .faixa__trilho{animation-play-state:paused}
+/* 3 cópias idênticas: andar 1/3 do trilho = 1 lista inteira, sem vão nem em tela 2560px */
+@keyframes rola{to{transform:translateX(calc(-100% / 3))}}
+.faixa__lista{display:flex;align-items:center;gap:var(--sp-8);padding:var(--sp-4) var(--sp-8) var(--sp-4) 0}
+.faixa li{display:flex;align-items:center;gap:var(--sp-3);white-space:nowrap;font-size:.92rem;color:var(--text-on-ink-muted)}
+.faixa strong{color:var(--text-on-ink);font-weight:700}
+.faixa .ico{flex:none;color:var(--logo)}
+.no-js .faixa__lista{flex-wrap:wrap;justify-content:center;padding-inline:var(--pad)}
+@media (prefers-reduced-motion:reduce){
+  .faixa__lista[aria-hidden]{display:none}
+  .faixa__trilho{width:auto}
+  .faixa__lista{flex-wrap:wrap;justify-content:center;gap:var(--sp-4) var(--sp-7);padding-inline:var(--pad)}
+}
+
+/* ===== COLEÇÕES (capas com o nome já na arte), de ponta a ponta ===== */
+.colecoes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-2);padding-inline:var(--sp-2)}
+.colecao{display:block;position:relative;aspect-ratio:1;overflow:hidden;background:var(--bg-elevated)}
+.colecao img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur) var(--ease)}
+.colecao::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 0 var(--ink);transition:box-shadow var(--dur-micro) var(--ease)}
+@media (hover:hover){.colecao:hover img{transform:scale(1.04)}}
+.colecao:hover::after{box-shadow:inset 0 0 0 2px var(--ink)}
+.colecao:active img{transform:scale(.99)}
+/* celular: trilho com a próxima capa aparecendo, em vez de 4 miniaturas */
+@media (max-width:767px){
+  .colecoes{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;gap:var(--sp-3);padding-inline:var(--pad);
+    overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);scrollbar-width:none}
+  .colecoes::-webkit-scrollbar{display:none}
+  .colecoes li{scroll-snap-align:start}
+}
+
+/* ===== LOCALIZADOR DE INICIAL (assinatura) ===== */
+.letra{border-block:1px solid var(--border)}
+.letra__grade{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(40px,6vw,96px);align-items:start}
+.letra__intro{position:sticky;top:calc(var(--header-h) + var(--sp-6));display:grid;gap:var(--sp-4)}
+/* a janela tem a mesma altura da linha da letra: nada corta embaixo (o itálico anterior vazava da caixa) */
+.letra__display{font-size:clamp(8rem,5rem + 8vw,13rem);height:1.08em;overflow:hidden;margin-top:var(--sp-4)}
+.letra__grande{display:block;font-family:var(--font-display);font-weight:200;font-size:1em;line-height:1.08;color:var(--accent)}
+.letra__grande.is-in{animation:sobe var(--dur) var(--ease) both}
+.letra__conta{font-size:.95rem;color:var(--text-muted)}
+.letra__conta strong{color:var(--text-primary);font-weight:500}
+.alfabeto{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:var(--sp-2);margin-bottom:var(--sp-7)}
+.chip--letra{padding:0;aspect-ratio:1;font-family:var(--font-display);font-size:var(--fs-1);font-weight:400;line-height:1}
+.chip--letra:disabled{font-weight:300}
+.grade--letra{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:768px){.grade--letra{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.is-trocando .card{animation:entra var(--dur) var(--ease) both;animation-delay:calc(var(--i,0) * 60ms)}
+@keyframes entra{from{opacity:0;transform:translateY(16px)}}
+@keyframes sobe{from{opacity:0;transform:translateY(40%)}}
+@media (max-width:899px){
+  .letra__grade{grid-template-columns:minmax(0,1fr)}
+  .letra__intro{position:static}
+  .letra__display{display:none}
+  .alfabeto{grid-template-columns:repeat(7,minmax(0,1fr))}
+}
+
+/* ===== FILHOS ===== */
+.filhos__grade{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);align-items:start}
+.filhos__foto{position:sticky;top:calc(var(--header-h) + var(--sp-6));aspect-ratio:4/5;overflow:hidden;background:var(--bg-elevated)}
+.filhos__foto img{width:100%;height:100%;object-fit:cover}
+.filhos__foto figcaption{position:absolute;left:var(--sp-4);bottom:var(--sp-4);background:var(--bg-base);padding:var(--sp-2) var(--sp-3);font-size:.8rem;color:var(--text-muted)}
+.filhos__texto .section-head{margin-bottom:var(--sp-7)}
+.grade--2{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media (max-width:899px){.filhos__grade{grid-template-columns:minmax(0,1fr)}.filhos__foto{position:static;aspect-ratio:1}}
+
+/* ===== VITRINE ===== */
+.filtros{display:flex;flex-wrap:wrap;gap:var(--sp-2)}
+.grade.is-trocando .card{animation:entra var(--dur) var(--ease) both;animation-delay:calc(var(--i,0) * 50ms)}
+
+/* ===== A MALETA (capítulo novo: o dobro de respiro no topo) ===== */
+.maleta{background:var(--ink);color:var(--text-on-ink);padding-block:calc(var(--section) * 1.5) var(--section)}
+.maleta__grade{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,7vw,120px);align-items:center}
+/* o recorte fica na imagem, não na moldura: IntersectionObserver ignora alvo com área visível zero */
+.maleta__foto{aspect-ratio:3/4;overflow:hidden;background:var(--ink-soft)}
+.maleta__foto img{width:100%;height:100%;object-fit:cover;clip-path:inset(0 0 100% 0);transition:clip-path var(--dur) var(--ease)}
+.maleta__foto.is-in img,.no-js .maleta__foto img{clip-path:inset(0)}
+.maleta h2{font-size:var(--fs-4);margin-block:var(--sp-4) var(--sp-6)}
+.maleta p{color:var(--text-on-ink-muted);max-width:50ch}
+.maleta p+p{margin-top:var(--sp-4)}
+.numeros{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5);margin-top:var(--sp-8);padding-top:var(--sp-5);border-top:1px solid var(--border-ink)}
+.numeros div{display:flex;flex-direction:column-reverse;gap:var(--sp-1)}
+.numeros dd{font-family:var(--font-display);font-size:var(--fs-4);line-height:1;color:var(--text-on-ink)}
+.numeros dt{font-size:.8rem;color:var(--text-on-ink-muted)}
+@media (max-width:899px){.maleta__grade{grid-template-columns:minmax(0,1fr)}.maleta__foto{max-width:420px}}
+
+/* ===== INSTAGRAM ===== */
+.insta{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--sp-2)}
+.insta a{display:block;aspect-ratio:3/4;overflow:hidden;background:var(--bg-elevated);position:relative}
+.insta img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur) var(--ease)}
+@media (hover:hover){.insta a:hover img{transform:scale(1.04)}}
+.insta a:active img{transform:scale(.99)}
+.insta__cta{display:flex!important;flex-direction:column;justify-content:space-between;padding:var(--sp-5);background:var(--ink)!important;color:var(--text-on-ink);transition:background-color var(--dur-micro) var(--ease)}
+.insta__cta:hover{background:var(--ink-soft)!important}
+.insta__cta strong{font-family:var(--font-display);font-weight:300;font-size:var(--fs-4);line-height:1;color:var(--logo)}
+@media (max-width:899px){.insta__cta{padding:var(--sp-3)!important}.insta__cta strong{font-size:var(--fs-2)}.insta__cta span{font-size:.75rem}}
+.insta__cta span{font-size:.85rem;color:var(--text-on-ink-muted)}
+@media (max-width:899px){.insta{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* ===== REVENDA ===== */
+.revenda__in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--sp-7);align-items:end;padding-top:var(--sp-8);border-top:1px solid var(--border)}
+.revenda h2{font-size:var(--fs-4);margin-block:var(--sp-3) var(--sp-4)}
+@media (max-width:767px){.revenda__in{grid-template-columns:minmax(0,1fr);align-items:start}}
+
+.sacola .icon-btn:hover,.menu__painel .icon-btn:hover{background:var(--bg-elevated)}
+.menu__painel .icon-btn:hover{background:rgb(247 244 238/.08)}
+.footer__logo{width:112px;height:112px}
+</style>
+<script defer src="assets/produtos.js"></script>
+<script defer src="assets/site.js"></script>
+<script defer src="assets/home.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-sacola" viewBox="0 0 24 24"><path d="M5.5 8h13l-1.2 12.5H6.7L5.5 8Z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <!-- selos: traço grosso + preenchimento suave (duotone) no mesmo desenho -->
+  <symbol id="i-medalha" viewBox="0 0 24 24"><path d="m8.6 14.6-1.7 6.9 5.1-2.6 5.1 2.6-1.7-6.9"/><circle cx="12" cy="9.2" r="6.4" fill="currentColor" fill-opacity=".16"/><circle cx="12" cy="9.2" r="4.1"/><path d="m12 6.9.75 1.5 1.65.25-1.2 1.15.3 1.65L12 10.7l-1.5.75.3-1.65-1.2-1.15 1.65-.25Z"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 2.6 4.4 5.4v5.9c0 4.6 3.2 8.3 7.6 10.1 4.4-1.8 7.6-5.5 7.6-10.1V5.4L12 2.6Z" fill="currentColor" fill-opacity=".16"/><path d="M12 5.3 6.9 7.2v4.2c0 3.1 2 5.8 5.1 7.2"/><path d="m8.9 11.6 2.2 2.2 4.1-4.3"/></symbol>
+  <symbol id="i-pingente" viewBox="0 0 24 24"><path d="M3.5 3.5c2.6 3.6 14.4 3.6 17 0"/><path d="M12 6.2v2"/><rect x="7.3" y="8.2" width="9.4" height="12.3" rx="4.7" fill="currentColor" fill-opacity=".16"/><path d="m10 17.4 2-5.2 2 5.2M10.7 15.6h2.6"/></symbol>
+  <symbol id="i-gema" viewBox="0 0 24 24"><path d="M3.3 9.4 7.3 4h9.4l4 5.4L12 20.6 3.3 9.4Z" fill="currentColor" fill-opacity=".16"/><path d="M3.3 9.4h17.4M9.6 9.4 12 4l2.4 5.4L12 20.6M7.3 4l2.3 5.4M16.7 4l-2.3 5.4"/><path d="M20.6 1.6v2.6M19.3 2.9h2.6"/></symbol>
+  <symbol id="i-perolas" viewBox="0 0 24 24"><path d="M3 4.5c1.8 8.6 16.2 8.6 18 0"/><g fill="currentColor" fill-opacity=".16"><circle cx="5.2" cy="9.6" r="1.7"/><circle cx="8.5" cy="12.1" r="1.7"/><circle cx="12" cy="13" r="2"/><circle cx="15.5" cy="12.1" r="1.7"/><circle cx="18.8" cy="9.6" r="1.7"/></g><path d="M12 15v1.4"/><path d="M12 16.4c-1.5 1.7-1.5 3.4 0 4.1 1.5-.7 1.5-2.4 0-4.1Z"/></symbol>
+  <symbol id="i-maleta" viewBox="0 0 24 24"><rect x="2.8" y="7.4" width="18.4" height="12.8" rx="2.2" fill="currentColor" fill-opacity=".16"/><path d="M8.8 7.4V5.9A1.9 1.9 0 0 1 10.7 4h2.6a1.9 1.9 0 0 1 1.9 1.9v1.5"/><path d="M2.8 12.4h7.4M13.8 12.4h7.4"/><rect x="10.2" y="10.8" width="3.6" height="3.4" rx=".7"/></symbol>
+  <symbol id="i-conversa" viewBox="0 0 24 24"><path d="M20.6 11.3c0 4.4-3.9 7.9-8.6 7.9-1.3 0-2.6-.3-3.7-.8L3.6 19.8l1.5-4A7.6 7.6 0 0 1 3.4 11.3C3.4 6.9 7.3 3.4 12 3.4s8.6 3.5 8.6 7.9Z" fill="currentColor" fill-opacity=".16"/><path d="M8.3 11.4h.01M12 11.4h.01M15.7 11.4h.01" stroke-width="2.6"/></symbol>
+</svg>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="header">
+  <div class="header__in">
+    <div>
+      <button class="icon-btn menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><svg class="ico"><use href="#i-menu"/></svg></button>
+      <nav class="nav" aria-label="Principal">
+        <a href="#colecoes">Coleções</a>
+        <a href="#letra">Letras</a>
+        <a href="#filhos">Filhos</a>
+        <a href="#revenda">Revenda</a>
+      </nav>
+    </div>
+    <a class="logo" href="index.html" aria-label="Gregorio Semijoias, início">
+      <svg class="logo__gema" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 6.5 6.5 1h11L22 6.5 12 17 2 6.5Z M2 6.5h20 M9.5 6.5 12 1l2.5 5.5L12 17 M6.5 1l3 5.5 M17.5 1l-3 5.5"/></svg>
+      <span class="logo__nome">Gregorio</span>
+      <span class="logo__sub">SEMIJOIAS</span>
+    </a>
+    <div class="header__acoes">
+      <button class="icon-btn" type="button" data-abrir-sacola aria-label="Sacola, 0 itens"><svg class="ico"><use href="#i-sacola"/></svg><span class="badge" data-contagem></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<section class="hero" aria-labelledby="hero-titulo">
+  <div class="hero__modelo">
+    <img src="assets/img/hero-modelo.webp" width="620" height="803" fetchpriority="high" decoding="async"
+         alt="Modelo usando colares de letra sobrepostos, em dourado e prata">
+  </div>
+  <div class="hero__painel">
+    <p class="label hero__label">Semijoias personalizadas</p>
+    <h1 class="hero__titulo" id="hero-titulo">
+      <span class="mask"><span>Joias com o</span></span>
+      <span class="mask"><span><em>nome</em> de quem</span></span>
+      <span class="mask"><span>você ama</span></span>
+    </h1>
+    <p class="hero__sub">Iniciais, pingentes de filhos e presentes em banho de ouro e prata.</p>
+    <div class="hero__acoes">
+      <a class="btn btn--ink" href="#letra">Encontrar minha inicial</a>
+      <a class="link" href="#filhos">Ver colares de filhos</a>
+    </div>
+  </div>
+  <div class="hero__pecas" aria-hidden="true">
+    <img src="assets/img/hero-pecas.webp" width="600" height="803" alt="" decoding="async">
+  </div>
+</section>
+
+<section class="faixa" aria-label="Por que comprar na Gregorio">
+  <div class="faixa__trilho">
+    <ul class="faixa__lista">
+      <li><svg class="ico ico--selo" aria-hidden="true"><use href="#i-medalha"/></svg><span><strong>Há mais de 20 anos</strong> no mercado</span></li>
+      <li><svg class="ico ico--selo" aria-hidden="true"><use href="#i-escudo"/></svg><span><strong>Garantia Gregorio</strong> em todas as peças</span></li>
+      <li><svg class="ico ico--selo" aria-hidden="true"><use href="#i-pingente"/></svg><span><strong>Personalizadas</strong> com inicial e nome</span></li>
+      <li><svg class="ico ico--selo" aria-hidden="true"><use href="#i-gema"/></svg><span><strong>Banho de ouro</strong> e de prata</span></li>
+      <li><svg class="ico ico--selo" aria-hidden="true"><use href="#i-perolas"/></svg><span><strong>Zircônias e pérolas</strong> em cada detalhe</span></li>
+      <li><svg class="ico ico--selo" aria-hidden="true"><use href="#i-maleta"/></svg><span><strong>Revenda</strong> com até 40% de comissão</span></li>
+      <li><svg class="ico ico--selo" aria-hidden="true"><use href="#i-conversa"/></svg><span><strong>Atendimento</strong> pelo WhatsApp</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="colecoes" aria-labelledby="colecoes-titulo">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="label">Coleções</p>
+      <h2 id="colecoes-titulo">Do dia a dia ao <em>presente</em></h2>
+    </div>
+  </div>
+  <ul class="colecoes reveal">
+    <li><a class="colecao" href="#vitrine" data-filtro="colares"><img src="assets/img/colecao-colares-s.webp" srcset="assets/img/colecao-colares-s.webp 600w, assets/img/colecao-colares.webp 1200w" sizes="(min-width:768px) 25vw, 78vw" width="600" height="600" loading="lazy" decoding="async" alt="Colares"></a></li>
+    <li><a class="colecao" href="#vitrine" data-filtro="brincos"><img src="assets/img/colecao-brincos-s.webp" srcset="assets/img/colecao-brincos-s.webp 600w, assets/img/colecao-brincos.webp 1200w" sizes="(min-width:768px) 25vw, 78vw" width="600" height="600" loading="lazy" decoding="async" alt="Brincos"></a></li>
+    <li><a class="colecao" href="#vitrine" data-filtro="aneis"><img src="assets/img/colecao-aneis-s.webp" srcset="assets/img/colecao-aneis-s.webp 600w, assets/img/colecao-aneis.webp 1200w" sizes="(min-width:768px) 25vw, 78vw" width="600" height="600" loading="lazy" decoding="async" alt="Anéis"></a></li>
+    <li><a class="colecao" href="#vitrine" data-filtro="pulseiras"><img src="assets/img/colecao-pulseiras-s.webp" srcset="assets/img/colecao-pulseiras-s.webp 600w, assets/img/colecao-pulseiras.webp 1200w" sizes="(min-width:768px) 25vw, 78vw" width="600" height="600" loading="lazy" decoding="async" alt="Pulseiras"></a></li>
+  </ul>
+</section>
+
+<section class="section letra" id="letra" aria-labelledby="letra-titulo">
+  <div class="container letra__grade">
+    <div class="letra__intro reveal">
+      <p class="label">Colares e anéis de letra</p>
+      <h2 id="letra-titulo">Qual é a sua <em>letra</em>?</h2>
+      <p class="lead">Escolha a inicial e veja as peças que temos com ela agora.</p>
+      <div class="letra__display" aria-hidden="true"><span class="letra__grande" data-letra-grande></span></div>
+      <p class="letra__conta" data-letra-conta aria-live="polite"></p>
+    </div>
+    <div>
+      <div class="alfabeto" role="group" aria-label="Escolha a inicial" data-alfabeto></div>
+      <div class="grade grade--letra" data-letra-resultado></div>
+      <noscript><p class="muted">Ative o JavaScript para escolher a inicial. <a class="link" href="produto.html?ref=CLL002">Ver o Colar Letra Balão</a>.</p></noscript>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="filhos" aria-labelledby="filhos-titulo">
+  <div class="container filhos__grade">
+    <figure class="filhos__foto reveal">
+      <img src="assets/img/p/clf042-0.webp" width="720" height="900" loading="lazy" decoding="async" alt="Colar de pérolas com três pingentes de menina">
+      <figcaption>Colar 3 Filhos em Pérola</figcaption>
+    </figure>
+    <div class="filhos__texto">
+      <div class="section-head reveal">
+        <p class="label">Colares e pulseiras de filhos</p>
+        <h2 id="filhos-titulo">Um pingente para cada <em>filho</em></h2>
+        <p class="lead">Escolha a menina ou o menino, a cor da pedra ou a combinação que conta a sua família.</p>
+      </div>
+      <div class="grade grade--2" data-lista="filhos"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="vitrine" aria-labelledby="vitrine-titulo">
+  <div class="container">
+    <div class="section-head section-head--row reveal">
+      <div>
+        <p class="label">Direto da maleta</p>
+        <h2 id="vitrine-titulo">Peças para usar e <em>presentear</em></h2>
+      </div>
+      <div class="filtros" role="group" aria-label="Filtrar peças" data-filtros>
+        <button class="chip" type="button" data-filtro="destaques" aria-pressed="true">Destaques</button>
+        <button class="chip" type="button" data-filtro="colares" aria-pressed="false">Colares</button>
+        <button class="chip" type="button" data-filtro="brincos" aria-pressed="false">Brincos</button>
+        <button class="chip" type="button" data-filtro="aneis" aria-pressed="false">Anéis</button>
+        <button class="chip" type="button" data-filtro="pulseiras" aria-pressed="false">Pulseiras</button>
+      </div>
+    </div>
+    <div class="grade" data-vitrine aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="maleta on-ink" id="maleta" aria-labelledby="maleta-titulo">
+  <div class="container maleta__grade">
+    <figure class="maleta__foto reveal-clip">
+      <img src="assets/img/ig/ig-10.webp" width="480" height="640" loading="lazy" decoding="async" alt="Mão segurando a maleta preta da Gregorio Semijoias">
+    </figure>
+    <div class="reveal">
+      <p class="label">A maleta Gregorio</p>
+      <h2 id="maleta-titulo">Há mais de 20 anos, de <em>mão em mão</em></h2>
+      <p>As peças Gregorio chegam às clientes pelas mãos das revendedoras, dentro da maleta. Cada vez que ela abre, começa uma conversa: qual é a sua inicial, quantos filhos você tem, para quem é o presente.</p>
+      <p>Esta loja continua essa conversa, agora onde você estiver.</p>
+      <dl class="numeros">
+        <div><dt>anos no mercado</dt><dd>20+</dd></div>
+        <div><dt>seguidores no Instagram</dt><dd>9,9 mil</dd></div>
+        <div><dt>peças no catálogo</dt><dd>150+</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="instagram" aria-labelledby="insta-titulo">
+  <div class="container">
+    <div class="section-head section-head--row reveal">
+      <div>
+        <p class="label">No Instagram</p>
+        <h2 id="insta-titulo"><em>#usegregorio</em></h2>
+      </div>
+      <a class="link" href="https://www.instagram.com/gregoriosemijoias_/" target="_blank" rel="noopener">Seguir @gregoriosemijoias_</a>
+    </div>
+    <ul class="insta reveal">
+      <li><a href="https://www.instagram.com/p/DdkI9pOxka5/" target="_blank" rel="noopener"><img src="assets/img/ig/ig-03.webp" width="485" height="640" loading="lazy" decoding="async" alt="Colares dourados com pingentes sobre mármore"></a></li>
+      <li><a href="https://www.instagram.com/p/DdcPYWeFSSa/" target="_blank" rel="noopener"><img src="assets/img/ig/ig-04.webp" width="518" height="640" loading="lazy" decoding="async" alt="Brincos ear hook em modelo"></a></li>
+      <li><a href="https://www.instagram.com/p/Db3rnLkETyl/" target="_blank" rel="noopener"><img src="assets/img/ig/ig-11.webp" width="480" height="640" loading="lazy" decoding="async" alt="Choker de coração e brincos de pérola sobre linho"></a></li>
+      <li><a href="https://www.instagram.com/reel/Db_INuKRc6s/" target="_blank" rel="noopener"><img src="assets/img/ig/ig-09.webp" width="360" height="640" loading="lazy" decoding="async" alt="Colar com pingente no busto"></a></li>
+      <li><a href="https://www.instagram.com/p/DceZowNlcoE/" target="_blank" rel="noopener"><img src="assets/img/ig/ig-08.webp" width="480" height="640" loading="lazy" decoding="async" alt="Mão segurando cartelas de brincos"></a></li>
+      <li><a class="insta__cta" href="https://www.instagram.com/gregoriosemijoias_/" target="_blank" rel="noopener"><strong>9,9 mil</strong><span>pessoas acompanham as novidades no Instagram</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="revenda" aria-labelledby="revenda-titulo">
+  <div class="container">
+    <div class="revenda__in reveal">
+      <div>
+        <p class="label">Revenda</p>
+        <h2 id="revenda-titulo">Seja uma revendedora <em>Gregorio</em></h2>
+        <p class="lead">Revenda sem investimento inicial, com as peças em consignação e até 40% de comissão.</p>
+      </div>
+      <a class="btn" href="https://wa.me/551935423361?text=Ol%C3%A1!%20Quero%20ser%20revendedora%20Gregorio." target="_blank" rel="noopener">Quero revender <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer on-ink">
+  <div class="container">
+    <div class="footer__grade">
+      <div class="footer__marca">
+        <img class="footer__logo" src="assets/img/logo-gregorio.webp" width="112" height="112" loading="lazy" alt="Gregorio Semijoias">
+        <p>Semijoias personalizadas, com a garantia de quem está há mais de 20 anos no mercado.</p>
+      </div>
+      <div>
+        <h2>Coleções</h2>
+        <ul>
+          <li><a href="#vitrine" data-filtro="colares">Colares</a></li>
+          <li><a href="#vitrine" data-filtro="brincos">Brincos</a></li>
+          <li><a href="#vitrine" data-filtro="aneis">Anéis</a></li>
+          <li><a href="#vitrine" data-filtro="pulseiras">Pulseiras</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Atendimento</h2>
+        <ul>
+          <li><a href="https://wa.me/551935423361" target="_blank" rel="noopener">WhatsApp (19) 3542-3361</a></li>
+          <li><a href="https://www.instagram.com/gregoriosemijoias_/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Revenda</h2>
+        <ul>
+          <li><a href="#revenda">Seja revendedora</a></li>
+          <li><a href="#maleta">A maleta Gregorio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Gregorio Semijoias</span>
+      <span>Demonstração visual, sem checkout · NODE</span>
+    </div>
+  </div>
+</footer>
+
+<div class="menu" id="menu">
+  <div class="menu__fundo" data-fechar></div>
+  <nav class="menu__painel" aria-label="Menu">
+    <button class="icon-btn" type="button" data-fechar aria-label="Fechar menu"><svg class="ico"><use href="#i-fechar"/></svg></button>
+    <div class="menu__links">
+      <a href="#colecoes">Coleções</a>
+      <a href="#letra">Letras</a>
+      <a href="#filhos">Filhos</a>
+      <a href="#vitrine">Vitrine</a>
+      <a href="#revenda">Revenda</a>
+    </div>
+  </nav>
+</div>
+
+<div class="sacola" id="sacola">
+  <div class="sacola__fundo" data-fechar></div>
+  <div class="sacola__painel" role="dialog" aria-modal="true" aria-labelledby="sacola-titulo">
+    <div class="sacola__topo">
+      <h2 id="sacola-titulo">Sua sacola</h2>
+      <button class="icon-btn" type="button" data-fechar aria-label="Fechar sacola"><svg class="ico"><use href="#i-fechar"/></svg></button>
+    </div>
+    <div class="sacola__lista"></div>
+    <div class="sacola__rodape">
+      <div class="sacola__total"><span>Subtotal</span><strong class="preco" data-total>R$ 0,00</strong></div>
+      <button class="btn btn--bloco" type="button" data-finalizar>Finalizar compra</button>
+      <p class="aviso-demo" role="status" hidden>Esta é uma demonstração visual. Na loja oficial, aqui começa o checkout.</p>
+    </div>
+  </div>
+</div>
+<div id="status" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>
